@@ -1,20 +1,30 @@
 var addingNumber = function(v, callback) {
- for (var i=0;i<10;i++){
-  if (v<7) { 
-  callback(null,v+v);
-  v++;
+ if (isNaN(v))
+ callback(new Error("please enter integer only"));
+ if (!isNaN(v)&& v>0 ){ 
+  for (var i=0;i<10;i++){
+   if (v<7) {
+    v++ 
+    callback(null,v+v);
+    }
+   if (v>7) {
+    callback(new Error("v is greater than 7"));
+    i=10;
+    }
+   }
   }
- else callback(new Error("v is greater than 7"));
  }
-}
+process.stdin.resume();
+process.stdin.on('data',function(chunk) {
  
-addingNumber(2,function(err, plus) {
+addingNumber(chunk,function(err, plus) {
  if (err) {
   console.log("what went wrong is "+ err.message);
   }
  else {
   console.log("results are: " + plus);
  }
+});
 }
 );
 
