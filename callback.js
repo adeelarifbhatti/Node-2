@@ -8,7 +8,7 @@ var addingNumber = function(v, callback) {
  }
 }
  
-var results = function(err, plus) {
+addingNumber(2,function(err, plus) {
  if (err) {
   console.log("what went wrong is "+ err.message);
   }
@@ -16,8 +16,7 @@ var results = function(err, plus) {
   console.log("results are: " + plus);
  }
 }
-
-addingNumber(2,results);
+);
 
  
   
