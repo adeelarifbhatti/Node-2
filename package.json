@@ -1,0 +1,21 @@
+{
+  "name": "learning-Node-2",
+  "version": "0.0.0",
+  "description": "just for learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adeelarifbhatti/learning-Node-2"
+  },
+  "author": "Adeel",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/adeelarifbhatti/learning-Node-2/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.4"
+  }
+}
