@@ -4,7 +4,7 @@ var addingNumber = function(v, callback) {
  if (!isNaN(v)&& v>0 ){ 
   for (var i=0;i<10;i++){
    if (v<7) {
-    v++ 
+    v++ ;
     callback(null,v+v);
     }
    if (v>7) {
@@ -13,7 +13,7 @@ var addingNumber = function(v, callback) {
     }
    }
   }
- }
+ };
 process.stdin.resume();
 process.stdin.on('data',function(chunk) {
  
