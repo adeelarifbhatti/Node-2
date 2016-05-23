@@ -19,7 +19,8 @@
  	var destHtml = './src/view';
  	var bowerOptions = {
  		bowerJson: require('./bower.json'),
- 		directory: './public/lib'
+ 		directory: './public/lib',
+ 		ignorePath: '../../public'
  	}
  	return gulp.src(checkHtml)
  	.pipe(wiredep(bowerOptions))
