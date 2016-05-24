@@ -2,6 +2,7 @@
  var jshint = require('gulp-jshint');
  var wiredep = require('wiredep').stream;
  var inject = require('gulp-inject');
+ var nodemon = require('gulp-nodemon');
  //var jscs = require('gulp-jscs');
 
  var checkJs = ['*.js','/src/lib/*.js'];
@@ -31,3 +32,20 @@
  	.pipe(gulp.dest(destHtml));
 
  });
+
+ gulp.task('doneall', ['style','update'], function() {
+ 	var options = {
+ 		script:'app.js',
+ 		delayTime:1,
+ 		env: {
+ 			'PORT': 5000
+	 	},
+	watch: checkJs
+	};
+
+	return nodemon(options)
+	.on('return', function(env) {
+		console.log('restarting server......');
+
+	});
+});
