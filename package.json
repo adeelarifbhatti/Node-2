@@ -25,6 +25,7 @@
     "gulp-jscs": "~3.0.2",
     "jshint-stylish": "~2.2.0",
     "wiredep": "~4.0.0",
-    "gulp-inject": "1.5.0"
+    "gulp-inject": "1.5.0",
+    "gulp-nodemon": "~2.0.7"
   }
 }
