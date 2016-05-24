@@ -22,9 +22,9 @@
  		bowerJson: require('./bower.json'),
  		directory: './public/lib',
  		ignorePath: '../../public'
- 	}
+ 	};
  	var ourCssJs = gulp.src(['./public/css/*.css', './public/js/*.js'], {read: false});
- 	var ourOptions = { ignorePath: '/public'}
+ 	var ourOptions = { ignorePath: '/public'};
  	return gulp.src(checkHtml)
  	.pipe(wiredep(bowerOptions))
  	.pipe(inject(ourCssJs,ourOptions))
