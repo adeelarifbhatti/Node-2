@@ -17,7 +17,7 @@
   });
 
  gulp.task('update', function() {
- 	var checkHtml = './src/view/*.html';
+ 	var checkHtml = './src/view/*.ejs';
  	var destHtml = './src/view';
  	var bowerOptions = {
  		bowerJson: require('./bower.json'),

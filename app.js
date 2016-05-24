@@ -5,10 +5,11 @@ var port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 
-app.use(express.static('src/view'));
- 
+app.set('views','./src/view');
+app.set('view engine', 'ejs');
+
 app.get('/', function(req,res){
-	res.send('very basic first app, kind of hello world');
+	res.render('index', {title: 'my first app in EJS'});
 });
 
 app.listen(port, function(err) {
