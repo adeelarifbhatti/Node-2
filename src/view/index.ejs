@@ -36,9 +36,14 @@
     <button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         ☰
     </button>
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><%=title%></a>
     <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
         <ul class="nav navbar-nav pull-right">
+       <% for(var i=0; i<menu.length; i++) { %>
+            <li class="nav-item"> 
+            <a class="nav-link" href="#"> <%=menu[i]%></a></li>
+            <%}%>
+        <!--
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">Home</span></a>
             </li>
@@ -51,6 +56,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">About</a>
             </li>
+        -->
+
         </ul>
     </div>
 </nav>
@@ -58,6 +65,12 @@
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
             <ul class="nav nav-pills nav-stacked">
+            
+            <% for(var i=0; i<menu.length; i++) { %>
+            <li class="nav-item"> 
+            <a class="nav-link" href="#"> <%=menu[i]%></a></li>
+            <%}%>
+            <!--
                 <li class="nav-item"><a class="nav-link" href="#">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
@@ -67,6 +80,7 @@
                 <li class="nav-item"><a class="nav-link" href="">Another</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Nav item</a></li>
                 <li class="nav-item"><a class="nav-link" href="">One more</a></li>
+                -->
             </ul>
         </div>
         <!--/col-->
@@ -79,7 +93,7 @@
             </p>
 
             <h1 class="display-1 hidden-xs-down">
-            Bootstrap 4 Dashboard
+            <%=title%>
             </h1>
             <p class="lead">(with off-canvas sidebar, based on BS v4 alpha)</p>
 
