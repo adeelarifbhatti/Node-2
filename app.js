@@ -8,6 +8,10 @@ app.use(express.static('public'));
 app.set('views','./src/view');
 app.set('view engine', 'ejs');
 
+app.get('/index-backup', function(req,res){
+	res.render('index-backup', {title: 'my first app in EJS', menu: ['First','Second','Third','Fourth','fifth','sixth','seventh']});
+});
+
 app.get('/', function(req,res){
 	res.render('index', {title: 'my first app in EJS', menu: ['First','Second','Third','Fourth','fifth','sixth','seventh']});
 });
