@@ -1,11 +1,107 @@
 
+
+.top-nav li {
+    display: inline-block;
+    
+}
+
+.top-nav {
+    padding: 0 15px;
+}
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 10px;
+    }
+}
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #222;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+/***************************************************************************
+
 .container {
 	 margin-top: -4.5em; 
 	 width: 100%; 
 	
 }
-
-
+body {
+	height: 100%
+	width:100%;
+}
 .body-content {
 	margin-top: 3em;
 	margin-left: 7em;
@@ -16,11 +112,6 @@
 	-webkit-transition: margin-left 0.3s linear;
 
 }
-
-body {
-	height: 100%
-	width:100%;
-}
 /*
 div.wrapper {
 	width:1000px;
@@ -28,7 +119,7 @@ div.wrapper {
 	margin-left:auto;
 	margin-right:auto;
 	border: 1px solid black;
-*/
+* it was comment
 div.banner {
 	width: 100%;
 	height: 90px;
@@ -37,7 +128,7 @@ div.banner {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #ffccff;
-	/* border: 1px solid black; */
+	/* border: 1px solid black; * in was comment
 	}
 
 }
@@ -68,7 +159,7 @@ header a:focus {
 .pdsa-sn-wrapper {
 	position: absolute;
 	margin-left: -1.4em;
-	/*top: 0em; */ 
+	/*top: 0em; * it was comment
 	left: 0em; 
 	width: 7em;
 	 height: 100%; 
@@ -152,3 +243,4 @@ font-size: xx-large;
 
 }
 
+****************************************/
