@@ -19,7 +19,7 @@ app.get('/index-backup', function(req,res){
 
 
 app.get('/', function(req,res){
-	res.render('index', {title: 'my first app in EJS', sideMenu: [
+	res.render('index', {title: 'From Main', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
@@ -32,7 +32,7 @@ app.get('/', function(req,res){
 
 firstRouter.route('/')
 	.get(function (req,res) {
-		res.render('first', {title: 'my first app in EJS', sideMenu: [
+		res.render('first', {title: 'From First', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
