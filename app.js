@@ -13,7 +13,15 @@ app.get('/index-backup', function(req,res){
 });
 
 app.get('/', function(req,res){
-	res.render('index', {title: 'my first app in EJS', menu: ['First','Second','Third','Fourth','fifth','sixth','seventh']});
+	res.render('index', {title: 'my first app in EJS', sideMenu: [
+
+																	{Link: '/First', Text: 'First'}, 
+																	{Link: '/Second', Text: 'Second'}, 
+																	{Link: '/Third', Text: 'Third'}, 
+																	{Link: '/Fourth', Text: 'Fourth'}, 
+																	{Link: '/Fifth', Text: 'Fifth'}
+																	
+				]});
 });
 
 app.listen(port, function(err) {

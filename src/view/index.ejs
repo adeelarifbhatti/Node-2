@@ -81,6 +81,10 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
+                    <% for(var i=0; i<sideMenu.length;i++) {%>
+                    	<li><a href="<%=sideMenu[i].Link%>"> <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> </a></li>
+                    <%}%>
+                    <!--
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
@@ -115,6 +119,9 @@
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
                     </li>
+                    -->
+                                    
+                    
                 </ul>
 
             </div>
