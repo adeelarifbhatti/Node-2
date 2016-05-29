@@ -2,7 +2,9 @@ var express = require('express');
 
 var app = express();
 var port = process.env.PORT || 8080;
-var firstRouter= express.Router();
+
+var firstRoute = require('./src/routes/firstRoute');
+
 var secondRouter= express.Router();
 var thirdRouter= express.Router();
 var fourthRouter= express.Router();
@@ -19,7 +21,7 @@ The following method is for the index-backup page, it along with index-back has 
 app.get('/index-backup', function(req,res){
 	res.render('index-backup', {title: 'No Use of this Page', menu: ['First','Second','Third','Fourth','fifth','sixth','seventh']});
 });
-app.use('/first', firstRouter);
+app.use('/first', firstRoute);
 app.use('/second', secondRouter);
 app.use('/third', thirdRouter);
 app.use('/fourth', fourthRouter);
@@ -42,21 +44,10 @@ app.get('/', function(req,res){
 				]});
 });
 
-firstRouter.route('/')
-	.get(function (req,res) {
-		res.render('first', {title: 'From First', sideMenu: [
 
-																	{Link: '/First', Text: 'First'}, 
-																	{Link: '/Second', Text: 'Second'}, 
-																	{Link: '/Third', Text: 'Third'}, 
-																	{Link: '/Fourth', Text: 'Fourth'}, 
-																	{Link: '/Fifth', Text: 'Fifth'}
-																	
-				]});
-});
 	secondRouter.route('/')
 	.get(function (req,res) {
-		res.render('first', {title: 'From Second', sideMenu: [
+		res.render('second', {title: 'From Second', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
@@ -68,7 +59,7 @@ firstRouter.route('/')
 });
 	thirdRouter.route('/')
 	.get(function (req,res) {
-		res.render('first', {title: 'From third', sideMenu: [
+		res.render('third', {title: 'From third', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
@@ -81,7 +72,7 @@ firstRouter.route('/')
 
 fourthRouter.route('/')
 	.get(function (req,res) {
-		res.render('first', {title: 'From Fourth', sideMenu: [
+		res.render('fourth', {title: 'From Fourth', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
@@ -94,7 +85,7 @@ fourthRouter.route('/')
 
 	fifthRouter.route('/')
 	.get(function (req,res) {
-		res.render('first', {title: 'From Fifth', sideMenu: [
+		res.render('fifth', {title: 'From Fifth', sideMenu: [
 
 																	{Link: '/First', Text: 'First'}, 
 																	{Link: '/Second', Text: 'Second'}, 
@@ -104,7 +95,7 @@ fourthRouter.route('/')
 																	
 				]});
 });
-app.use('/first', firstRouter);
+
 
 
 app.listen(port, function(err) {
