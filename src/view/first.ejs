@@ -134,10 +134,17 @@
                         <h1 class="page-header">
                             Dashboard <small>Statistics Overview</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                
-                            </li>
+                         <ol class="breadcrumb">
+
+                        <li class="active">
+                        <ul>
+                             <% for(var i=0; i<fakeData.length;i++) {%>
+                              <li>
+                        <a href="<%=fakeData[i].value3%>"> <h4><%=fakeData[i].value2%> </h4></a>
+                        </li>
+                        <%}%>
+                    </ul>
+                        </li>
                         </ol>
                     </div>
                 </div>
