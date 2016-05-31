@@ -34,5 +34,19 @@ firstRoute.route('/').get(function (req,res){
 
  });
 
+firstRoute.route('/:id').get(function (req,res){
+	var id = req.params.id;
+	res.render('firstView', {title: 'From First', sideMenu: [																	{Link: '/First', Text: 'First'}, 
+										{Link: '/Second', Text: 'Second'}, 
+										{Link: '/Third', Text: 'Third'}, 
+										{Link: '/Fourth', Text: 'Fourth'}, 
+										{Link: '/Fifth', Text: 'Fifth'}
+																
+				        ], fakeData: fakeData[id]
+				    }
+				);
+
+ });
+
 module.exports = firstRoute;
 	
