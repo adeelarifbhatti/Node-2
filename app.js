@@ -2,12 +2,20 @@ var express = require('express');
 
 var app = express();
 var port = process.env.PORT || 8080;
+var sideMenu = [		
+										{Link: '/First', Text: 'First'}, 
+										{Link: '/Second', Text: 'Second'}, 
+										{Link: '/Third', Text: 'Third'}, 
+										{Link: '/Fourth', Text: 'Fourth'}, 
+										{Link: '/Fifth', Text: 'Fifth'}
+																
+		    ];
 
-var firstRoute = require('./src/routes/firstRoute');
-var secondRoute = require('./src/routes/secondRoute');
-var thirdRoute = require('./src/routes/thirdRoute');
-var fourthRoute = require('./src/routes/fourthRoute');
-var fifthRoute = require('./src/routes/fifthRoute');
+var firstRoute = require('./src/routes/firstRoute')(sideMenu);
+var secondRoute = require('./src/routes/secondRoute')(sideMenu);
+var thirdRoute = require('./src/routes/thirdRoute')(sideMenu);
+var fourthRoute = require('./src/routes/fourthRoute')(sideMenu);
+var fifthRoute = require('./src/routes/fifthRoute')(sideMenu);
 
 app.use(express.static('public'));
 app.set('views','./src/view');
@@ -26,16 +34,7 @@ app.use('/fourth', fourthRoute);
 app.use('/fifth', fifthRoute);
 
 app.get('/', function(req,res){
-	res.render('index', {title: 'From Main', sideMenu: [
-
-																	{Link: '/First', Text: 'First'}, 
-																	{Link: '/Second', Text: 'Second'}, 
-																	{Link: '/Third', Text: 'Third'}, 
-																	{Link: '/Fourth', Text: 'Fourth'}, 
-																	{Link: '/Fifth', Text: 'Fifth'}
-														]
-																	
-				});
+	res.render('index', {title: 'From Main', sideMenu: sideMenu});
 
 	});
 app.listen(port, function(err) {

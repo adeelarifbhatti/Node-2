@@ -20,33 +20,22 @@ var fakeData = [
 			   ];
 
 
-
-firstRoute.route('/').get(function (req,res){
-	res.render('first', {title: 'From First', sideMenu: [																	{Link: '/First', Text: 'First'}, 
-										{Link: '/Second', Text: 'Second'}, 
-										{Link: '/Third', Text: 'Third'}, 
-										{Link: '/Fourth', Text: 'Fourth'}, 
-										{Link: '/Fifth', Text: 'Fifth'}
-																
-				        ], fakeData: fakeData
+var router = function(sideMenu){
+ firstRoute.route('/').get(function (req,res){
+	res.render('first', {title: 'From First', sideMenu: sideMenu, fakeData: fakeData
 				    }
 				);
 
- });
+  });
 
-firstRoute.route('/:id').get(function (req,res){
+ firstRoute.route('/:id').get(function (req,res){
 	var id = req.params.id;
-	res.render('firstView', {title: 'From First', sideMenu: [																	{Link: '/First', Text: 'First'}, 
-										{Link: '/Second', Text: 'Second'}, 
-										{Link: '/Third', Text: 'Third'}, 
-										{Link: '/Fourth', Text: 'Fourth'}, 
-										{Link: '/Fifth', Text: 'Fifth'}
-																
-				        ], fakeData: fakeData[id]
+	res.render('firstView', {title: 'From First', sideMenu: sideMenu, fakeData: fakeData[id]
 				    }
 				);
 
- });
+  });
+ return firstRoute;
+}
 
-module.exports = firstRoute;
-	
+module.exports = router;
