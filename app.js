@@ -16,6 +16,7 @@ var secondRoute = require('./src/routes/secondRoute')(sideMenu);
 var thirdRoute = require('./src/routes/thirdRoute')(sideMenu);
 var fourthRoute = require('./src/routes/fourthRoute')(sideMenu);
 var fifthRoute = require('./src/routes/fifthRoute')(sideMenu);
+var fakeData = require('./src/routes/fakeData')(sideMenu);
 
 app.use(express.static('public'));
 app.set('views','./src/view');
@@ -32,6 +33,7 @@ app.use('/second', secondRoute);
 app.use('/third', thirdRoute);
 app.use('/fourth', fourthRoute);
 app.use('/fifth', fifthRoute);
+app.use('/fakeData', fakeData);
 
 app.get('/', function(req,res){
 	res.render('index', {title: 'From Main', sideMenu: sideMenu});
