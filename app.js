@@ -1,4 +1,6 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+
 
 var app = express();
 var port = process.env.PORT || 8080;
@@ -17,8 +19,12 @@ var thirdRoute = require('./src/routes/thirdRoute')(sideMenu);
 var fourthRoute = require('./src/routes/fourthRoute')(sideMenu);
 var fifthRoute = require('./src/routes/fifthRoute')(sideMenu);
 var fakeData = require('./src/routes/fakeData')(sideMenu);
+var authRouter = require('./src/routes/authRouter')(sideMenu);
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
 app.set('views','./src/view');
 app.set('view engine', 'ejs');
 
@@ -34,6 +40,7 @@ app.use('/third', thirdRoute);
 app.use('/fourth', fourthRoute);
 app.use('/fifth', fifthRoute);
 app.use('/fakeData', fakeData);
+app.use('/auth', authRouter);
 
 app.get('/', function(req,res){
 	res.render('index', {title: 'From Main', sideMenu: sideMenu});
