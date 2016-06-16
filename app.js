@@ -1,5 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var cookieParser =require('cookie-parser');
+var passport = require('passport');
+
 
 
 var app = express();
@@ -24,6 +28,9 @@ var authRouter = require('./src/routes/authRouter')(sideMenu);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({secret: 'learning'}));
+require('./src/config/passport')(app);
 
 app.set('views','./src/view');
 app.set('view engine', 'ejs');
