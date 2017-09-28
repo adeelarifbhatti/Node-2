@@ -1,0 +1,21 @@
+version: "2"
+services:
+
+ node-adeel:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  ports:
+   - "80:8080"
+  links:
+   - my-mongo
+  depends_on:
+   - my-mongo
+   
+
+
+ my-mongo:
+  image: mongo
+  ports:
+   - "27107:27107" 
+
