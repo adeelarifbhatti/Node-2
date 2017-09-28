@@ -7,7 +7,7 @@ var objectId = require('mongodb').ObjectID
 
 var router = function(sideMenu){
  firstRoute.route('/').get(function (req,res){
- 	var url = 'mongodb://127.0.0.1:27017/db-express';
+ 	var url = 'mongodb://my-mongo:27017/db-express';
  	mongodb.connect(url, function(err,db){
  		var collection =  db.collection('data');
  		collection.find({}).toArray(
@@ -22,7 +22,7 @@ var router = function(sideMenu){
 
  firstRoute.route('/:id').get(function (req,res){
 	var id = new objectId(req.params.id);
-	var url = 'mongodb://127.0.0.1:27017/db-express';
+	var url = 'mongodb://my-mongo:27017/db-express';
 	mongodb.connect(url, function(err, db){
 
 		var collection = db.collection('data');

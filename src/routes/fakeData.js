@@ -23,7 +23,7 @@ var data = [
 var router = function (sideMenu) {
 	fakeData.route('/addData')
 		.get(function (req,res) {
-			var url = 'mongodb://127.0.0.1:27017/db-express';
+			var url = 'mongodb://my-mongo:27017/db-express';
 			mongodb.connect(url, function(err,db){
 				//var collection = db.collection('data');
 				// collection.insertMany(data,

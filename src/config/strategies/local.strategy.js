@@ -7,7 +7,7 @@ var localStrategyAuth = function () {
 		usernameField: 'UserName',
 		passwordField: 'Password'
 	},function(username, password, done){
-		var url = 'mongodb://127.0.0.1:27017/db-express';
+		var url = 'mongodb://my-mongo:27017/db-express';
 		mongodb.connect(url, function(err, db) {
 		var collection = db.collection('users');
 		collection.findOne({username: username}, 
