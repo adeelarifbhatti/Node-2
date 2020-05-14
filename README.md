@@ -1,2 +1,7 @@
 # Node-2
-this is only for learning node.js, I will be practicing very minor and beginning level concepts for node.js
+for running this app, do following,
+#docker-compose up 
+This will deploy a image from Dockerfile and then will create the containers for node2/express and mongo db.
+#
+first page to populate the data in mongo-db /fakedata/adddata should be accessed.
+
