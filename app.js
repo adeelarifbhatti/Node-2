@@ -9,8 +9,8 @@ var passport = require('passport');
 var app = express();
 var port = process.env.PORT || 8080;
 var sideMenu = [		
-										{Link: '/First', Text: 'First'}, 
-										{Link: '/Second', Text: 'Second'}, 
+										{Link: '/First', Text: 'Countries'}, 
+										{Link: '/Second', Text: 'Capitals'}, 
 										{Link: '/Third', Text: 'Third'}, 
 										{Link: '/Fourth', Text: 'Fourth'}, 
 										{Link: '/Fifth', Text: 'Fifth'}
