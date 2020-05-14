@@ -5,14 +5,19 @@
   <title><%=title%></title>
 </head>
     <!--bower:js-->
-
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/tether/dist/js/tether.js"></script>
     <!--endbower-->
     <!--inject:js-->
+
+   <script src="/js/scripts.js"></script>
 
    <!--endinject-->
 
     <!--bower:css-->
-
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
     <!--endbower-->
 <body>
     <ul class="nav navbar-nav side-nav">
@@ -30,7 +35,7 @@
             <ul>
                 <% for(var i=0; i<fakeData.length;i++) {%>
                     <li>
-                    <a href="first/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].value2%> </h4></a>
+                    <a href="first/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].country%> </h4></a>
                     </li>
                     <%}%>
             </ul>
