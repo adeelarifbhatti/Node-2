@@ -5,25 +5,42 @@
   <title><%=title%></title>
 </head>
     <!--bower:js-->
-
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/tether/dist/js/tether.js"></script>
     <!--endbower-->
     <!--inject:js-->
+
+   <script src="/js/scripts.js"></script>
 
    <!--endinject-->
 
     <!--bower:css-->
-
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
     <!--endbower-->
 <body>
-    <ul class="nav navbar-nav side-nav">
-        <li class="active">
+<body>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-primary ">
+
+    </nav>
+    <br><br><br>      
+
+        <div class="col-md-1">       
+            <ul class="nav nav-pills nav-stacked">   
             <% for(var i=0; i<sideMenu.length;i++) {%>
-                <li>
-                    <a href="<%=sideMenu[i].Link%>"> <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
-                    </a>
+                <li class=" active">
+                <a href="<%=sideMenu[i].Link%>"> 
+                <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
+                </a>
                 </li>
-                <%}%> 
-                </ul>
+            <%}%> 
+            </ul>
+        </div>
+
+
+</body>
+</html>
 
     <ol class="breadcrumb">
         <li class="active">

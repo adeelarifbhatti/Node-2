@@ -20,15 +20,40 @@
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
     <!--endbower-->
 <body>
-    <ul class="nav navbar-nav side-nav">
-        <li class="active">
+<body>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-primary ">
+
+    </nav>
+    <br><br><br>      
+
+        <div class="col-md-1">       
+            <ul class="nav nav-pills nav-stacked">   
             <% for(var i=0; i<sideMenu.length;i++) {%>
-                <li>
-                    <a href="<%=sideMenu[i].Link%>"> <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
-                    </a>
+                <li class=" active">
+                <a href="<%=sideMenu[i].Link%>"> 
+                <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
+                </a>
                 </li>
-                <%}%> 
-                </ul>
+            <%}%> 
+            </ul>
+        </div>
+
+
+</body>
+</html>
+    <div class="row">
+        <br>
+        <div class="col-md-2 col-sm-3 test-center">
+            Sign In
+            <form name="signInForm" action="/auth/signIn" method="post">
+                User Name: <input name="userName" id="userNameId"><br/>
+                Password: <input name="password" id="password"><br/>
+                <input type="submit" name="Sign In">
+                
+            </form>
+            
+        </div>
+    </div>
 
 
 

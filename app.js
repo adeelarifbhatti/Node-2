@@ -11,9 +11,9 @@ var port = process.env.PORT || 8080;
 var sideMenu = [		
 										{Link: '/First', Text: 'Countries'}, 
 										{Link: '/Second', Text: 'Capitals'}, 
-										{Link: '/Third', Text: 'Third'}, 
-										{Link: '/Fourth', Text: 'Fourth'}, 
-										{Link: '/Fifth', Text: 'Fifth'}
+										{Link: '/Third', Text: 'SignUp'}, 
+										{Link: '/Fourth', Text: 'SignIn'}, 
+										{Link: '/Fifth', Text: 'AdminPage'}
 																
 		    ];
 
