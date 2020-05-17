@@ -24,9 +24,8 @@
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary ">
 
     </nav>
-    <br><br><br>      
-
-        <div class="col-md-1">       
+    <div class="col-md-1"> 
+    <div class="padding-top">  
             <ul class="nav nav-pills nav-stacked">   
             <% for(var i=0; i<sideMenu.length;i++) {%>
                 <li class=" active">
@@ -37,21 +36,26 @@
             <%}%> 
             </ul>
         </div>
+    </div>
 
 
 </body>
 </html>
     <div class="row">
         <br>
-        <div class="col-md-2 col-sm-3 test-center">
-            Sign In
-            <form name="signInForm" action="/auth/signIn" method="post">
-                User Name: <input name="userName" id="userNameId"><br/>
-                Password: <input name="password" id="password"><br/>
-                <input type="submit" name="Sign In">
-                
-            </form>
-            
+       <div class="col-md-9 col-lg-10 main">
+        
+        <p >Sign In</p>
+  <form name="signInForm" action="/auth/signIn" method="post">
+    <div class="verti-align">
+    <label for="lname">Username</label> <input name="userName" id="username"><br/>
+    </div>
+    <div class="verti-align">
+    <label for="lname">Password</label> <input name="password" id="password"><br/>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+       
         </div>
     </div>
 

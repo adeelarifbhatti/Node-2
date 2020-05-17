@@ -24,9 +24,10 @@
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary ">
 
     </nav>
-    <br><br><br>      
+        
 
-        <div class="col-md-1">       
+        <div class="col-md-1"> 
+        <div class="padding-top">      
             <ul class="nav nav-pills nav-stacked">   
             <% for(var i=0; i<sideMenu.length;i++) {%>
                 <li class=" active">
@@ -37,17 +38,22 @@
             <%}%> 
             </ul>
         </div>
-    <ol class="breadcrumb">
-        <li class="active">
-            <ul>
+        </div>
+<div class="col-md-11">
+    <ol>
+        <div class="padding-top">
+            <ul class="a1 flex-container">
+                <div class="padding-top1">
                 <% for(var i=0; i<fakeData.length;i++) {%>
-                    <li>
-                    <a href="first/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].country%> </h4></a>
+                    <li class="a b ">
+                    <a class="btn btn-primary " href="first/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].country%> </h4></a>
                     </li>
                     <%}%>
+                </div>
             </ul>
-        </li>
+        </div>
     </ol>
+</div>
 
 
 </body>
