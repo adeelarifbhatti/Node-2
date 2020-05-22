@@ -24,17 +24,12 @@
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary ">
 
     </nav>
-          
-
-        <div class="col-md-1" >       
-            <div class="padding-top">
-            <ul class="nav nav-pills nav-stacked">   
-                    
+    <div class="col-md-1">       
+    <div class="padding-top">
+            <ul class="nav nav-pills nav-stacked">                     
             <% for(var i=0; i<sideMenu.length;i++) {%>
             <li class=" active">
-                
-               
-                <a href="<%=sideMenu[i].Link%>"> 
+            <a href="<%=sideMenu[i].Link%>"> 
                     
                     <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
                 </a>
@@ -48,12 +43,15 @@
        <div class="col-md-9 col-lg-10 main">
         <div class="card card-inverse card-danger">
          <div class="card-block bg-danger" >
-                           <div class="verti-align"> 
-        
+            <div class="verti-align"> 
+            <div class="header">
         <p ><b>Sign Up</p>
+            </div>
             </div>
   <form name="signUpForm" action="/auth/signUp" method="post">
     <div class="verti-align">
+
+        
         <label for="lname">Username</label> <input name="userName" id="username">
     </div>
     <div class="verti-align">
