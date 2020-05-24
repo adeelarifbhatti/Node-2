@@ -4,8 +4,8 @@ var mongodb = require('mongodb').MongoClient
 
 var localStrategyAuth = function () {
 	var userpass = new LocalStrategies({
-		usernameField: 'UserName',
-		passwordField: 'Password'
+		usernameField: 'username',
+		passwordField: 'password'
 	},function(username, password, done){
 		var url = 'mongodb://my-mongo:27017/db-express';
 		mongodb.connect(url, function(err, db) {
