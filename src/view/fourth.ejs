@@ -47,25 +47,25 @@
         <div class="padding-top"> 
         
         
-  <form name="signInForm" class="login-form" action="/auth/signIn" method="post">
+  <form name="signInForm" class="login-form" action="/auth/profile" method="post">
     
         <div class="header">
         <h1>Welcome to this Site</h1>
         <span>Please, fill this form</span>
         </div>
-        <div class="content">
-            <input name="username" type="text" class="input username" placeholder="Username" />        
+        <div class="content"> 
+            <input name="username" id="username" class="input username" placeholder="username" />        
             <div class="user-icon">
                 
             </div>
-            <input name="password" type="password" class="input password" placeholder="Password" />
+            <input name="password" id="password" class="input password" placeholder="password" />
             <div class="pass-icon">
                 
             </div>       
         </div>
         <div class="footer">
-            <a href="#" class="button">Login</a>
-        </div>
+            <a href="/auth/profile" class="button">Login</a>
+        </div> 
 
   </form>
        
