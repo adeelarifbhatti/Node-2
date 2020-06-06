@@ -13,7 +13,7 @@ var router = function() {
 			var collection = db.collection('users');
 			var user = {
 				username: req.body.username,
-				Password: req.body.password
+				password: req.body.password
 			};
 			collection.insert(user, function(err, results){
 				req.login(results.ops[0], function(){
@@ -21,15 +21,17 @@ var router = function() {
 				});
 
 
-			});
+			});  
 
 
 		});
 		authRouter.route('/signin')
-		.post(passport.authenticate('local', { 
+		.post(passport.authenticate('local', {
+
 			failureRedirect: '/' 
 		}), function(req,res) {
 			res.redirect('/auth/profile');
+			console.log(req.body);
 
 
 		});
