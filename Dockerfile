@@ -1,12 +1,13 @@
-FROM node:boron
+FROM node:8
 
 MAINTAINER adeelarifbhatti@gmail.com
 
 
 WORKDIR /usr/src/app
-COPY . .
+COPY package.json .
 RUN npm install
 RUN npm update
+COPY . .
 # Following is for development
 RUN npm install bower gulp wiredep gulp-inject gulp-jshint gulp-jscs jshint-stylish jshint -g
 RUN bower install --allow-root --force|tee logs
