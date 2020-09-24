@@ -12,6 +12,7 @@ var localStrategyAuth = function () {
 		var collection = db.collection('users');
 		collection.findOne({username: username}, 
 			function(err, results){
+				if (!user) { return done(null, false, {message: 'bad user'})}
 				if (results.password === password){
 					var user = results;
 					done(null, user);
