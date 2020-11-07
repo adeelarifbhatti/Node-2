@@ -4,7 +4,7 @@ var fourthRoute = express.Router();
 var router = function(sideMenu){
 
  fourthRoute.route('/').get(function (req,res){
-	res.render('fourth', {title: 'From Fourth', sideMenu: sideMenu});
+	res.render('signin', {title: 'From Fourth', sideMenu: sideMenu});
  });
 return fourthRoute;
 

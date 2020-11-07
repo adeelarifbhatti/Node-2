@@ -12,7 +12,7 @@ var router = function(sideMenu){
  		var collection =  db.collection('data');
  		collection.find({}).toArray(
  				function(err, results){
- 						res.render('first', {title: 'From First', sideMenu: sideMenu, fakeData: results
+ 						res.render('countries', {title: 'From First', sideMenu: sideMenu, fakeData: results
 				   							 }
 									);
  				});
@@ -27,7 +27,7 @@ var router = function(sideMenu){
 
 		var collection = db.collection('data');
 		collection.findOne({_id :id}, function(err, results) { 
-										res.render('firstView', {title: 'From First',
+										res.render('capitalview', {title: 'From First',
 										 sideMenu: sideMenu,
 										 fakeData: results});
 							 }

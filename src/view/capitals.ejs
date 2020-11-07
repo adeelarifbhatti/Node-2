@@ -21,9 +21,7 @@
     <!--endbower-->
 <body>
 
-    <nav class="navbar navbar-fixed-top navbar-dark bg-light ">
 
-    </nav>
         
 
         <div class="col-md-2"> 
@@ -40,14 +38,14 @@
         </div>
         </div>
         <div class="container">
-        <div class="col-md-10">
+<div class="col-md-10">
     <ol>
         <div class="padding-top">
             <ul class="a1 flex-container">
                 <div class="padding-top1">
                 <% for(var i=0; i<fakeData.length;i++) {%>
                     <li class="a b ">
-                    <a class="ghost-button" href="first/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].country%> </h4></a>
+                    <a class="ghost-button " href="countries/<%=fakeData[i]._id%>" > <h4><%=fakeData[i].city%> </h4></a>
                     </li>
                     <%}%>
                 </div>

@@ -9,19 +9,19 @@ var passport = require('passport');
 var app = express();
 var port = process.env.PORT || 8080;
 var sideMenu = [		
-										{Link: '/First', Text: 'Countries'}, 
-										{Link: '/Second', Text: 'Capitals'}, 
-										{Link: '/Third', Text: 'SignUp'}, 
-										{Link: '/Fourth', Text: 'SignIn'}, 
-										{Link: '/Fifth', Text: 'AdminPage'}
+										{Link: '/countries', Text: 'Countries'}, 
+										{Link: '/capitals', Text: 'Capitals'}, 
+										{Link: '/signup', Text: 'SignUp'}, 
+										{Link: '/signin', Text: 'SignIn'}, 
+										{Link: '/adminpage', Text: 'AdminPage'}
 																
 		    ];
 
-var firstRoute = require('./src/routes/firstRoute')(sideMenu);
-var secondRoute = require('./src/routes/secondRoute')(sideMenu);
-var thirdRoute = require('./src/routes/thirdRoute')(sideMenu);
-var fourthRoute = require('./src/routes/fourthRoute')(sideMenu);
-var fifthRoute = require('./src/routes/fifthRoute')(sideMenu);
+var countries = require('./src/routes/countries')(sideMenu);
+var capitals = require('./src/routes/capitals')(sideMenu);
+var signup = require('./src/routes/signup')(sideMenu);
+var signin = require('./src/routes/signin')(sideMenu);
+var adminpage = require('./src/routes/adminpage')(sideMenu);
 var fakeData = require('./src/routes/fakeData')(sideMenu);
 var authRouter = require('./src/routes/authRouter')(sideMenu);
 
@@ -41,11 +41,11 @@ The following method is for the index-backup page, it along with index-back has 
 app.get('/index-backup', function(req,res){
 	res.render('index-backup', {title: 'No Use of this Page',menu: ['First','Second','Third','Fourth','fifth','sixth','seventh']});
 });
-app.use('/first', firstRoute);
-app.use('/second', secondRoute);
-app.use('/third', thirdRoute);
-app.use('/fourth', fourthRoute);
-app.use('/fifth', fifthRoute);
+app.use('/countries', countries);
+app.use('/capitals', capitals);
+app.use('/signup', signup);
+app.use('/signin', signin);
+app.use('/adminpage', adminpage);
 app.use('/fakeData', fakeData);
 app.use('/auth', authRouter);
 
