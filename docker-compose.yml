@@ -6,7 +6,9 @@ services:
    context: .
    dockerfile: Dockerfile
   volumes:
-   - .:/app
+   - ./src:/usr/src/app/src
+   - ./public/lib/bootstrap/dist/css/bootstrap.min.css:/usr/src/app/public/lib/bootstrap/dist/css/bootstrap.min.css
+   - ./src/app.js:/usr/src/app/src/app.js
   ports:
    - "80:5000"
   links:
