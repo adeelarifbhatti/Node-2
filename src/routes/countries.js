@@ -6,6 +6,12 @@ var objectId = require('mongodb').ObjectID
 
 
 var router = function(sideMenu){
+	firstRoute.use(function(req,res,next){
+		if(!req.user){
+			res.redirect('/');
+		}
+		next();
+	});
  firstRoute.route('/').get(function (req,res){
  	var url = 'mongodb://my-mongo:27017/db-express';
  	mongodb.connect(url, function(err,db){

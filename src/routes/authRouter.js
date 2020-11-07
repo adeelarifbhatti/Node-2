@@ -32,6 +32,7 @@ var router = function(sideMenu) {
 			//res.render('profile', {title: 'From Profile',
 			//sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
 			console.log(req.body);
+		});
 		
 
 		/* When passport does it's things i.e. passport.initialize and passport.session and middleware it would add  things to request for us to use, the following login function is one of them,
@@ -42,18 +43,24 @@ var router = function(sideMenu) {
 		
 
 	authRouter.route('/profile')
-	.get(function(req,res){
+		.all(function(req,res,next){
+			if(!req.user){
+				//res.render('error',{title: 'error',sideMenu: sideMenu, result: 'User is not logged in, please login'});
+				res.redirect('/');
+			}
+			next();
+		})
+		.get(function(req,res){
+			if(req.user){
 		console.log("INSIDE PROFILE CREATION");
 		// req.user lets you know that this user is signed in and here is his infoemation
 		res.render('profile', {title: 'From Profile',
 			sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
-		console.log(req.user.username);
+		}
+		//console.log(req.user.username);
 		//res.json(req.user);
 	});
-}); 
-
-
- return authRouter;
+	return authRouter;
 };
 
 module.exports= router;
