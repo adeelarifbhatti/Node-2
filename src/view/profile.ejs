@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%=title%></title>
+</head>
+    <!--bower:js-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/tether/dist/js/tether.js"></script>
+    <!--endbower-->
+    <!--inject:js-->
+
+   <script src="/js/scripts.js"></script>
+
+   <!--endinject-->
+
+    <!--bower:css-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!--endbower-->
+<body>
+
+        
+
+        <div class="col-md-2"> 
+        <div class="padding-top">      
+            <ul class="nav nav-pills nav-stacked">   
+            <% for(var i=0; i<sideMenu.length;i++) {%>
+                <li class=" active">
+                <a href="<%=sideMenu[i].Link%>"> 
+                <i class="fa fa-fw fa-hand-o-right"></i> <%=sideMenu[i].Text%> 
+                </a>
+                </li>
+            <%}%> 
+            </ul>
+        </div>
+        </div>
+        <div class="padding-top1">
+                <h1 class="NEONbluetxt ">
+                             Welcome User <%=result%>  
+                </h1>
+                <li class="a b ">
+                    <a class="ghost-button">
+                    <h4>Your password is <%=result2%></h4></a>
+        </div>
+ 
+
+</body>
+</html>

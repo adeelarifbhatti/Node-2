@@ -4,7 +4,7 @@ var mongodb = require('mongodb').MongoClient;
 var passport = require('passport');
 
 
-var router = function() {
+var router = function(sideMenu) {
 	authRouter.route('/signup')
 	.post(function(req,res) {
 		console.log(req.body);
@@ -46,7 +46,10 @@ var router = function() {
 	authRouter.route('/profile')
 	.get(function(req,res){
 		// req.user lets you know that this user is signed in and here is his infoemation
-		res.json(req.user);
+		res.render('profile', {title: 'From Profile',
+			sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
+		console.log(req.user.username);
+		//res.json(req.user);
 	});
 }); 
 
