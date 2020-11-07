@@ -19,22 +19,20 @@ var router = function(sideMenu) {
 				req.login(results.ops[0], function(){
 					res.redirect('/auth/profile');
 				});
-
-
 			});  
-
-
 		});
+		});
+
 		authRouter.route('/signin')
 		.post(passport.authenticate('local', {
-
 			failureRedirect: '/' 
 		}), function(req,res) {
+			console.log("INSIDE SIGNIN");
 			res.redirect('/auth/profile');
+			//res.render('profile', {title: 'From Profile',
+			//sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
 			console.log(req.body);
-
-
-		});
+		
 
 		/* When passport does it's things i.e. passport.initialize and passport.session and middleware it would add  things to request for us to use, the following login function is one of them,
 		so login function would tell passport that this user is logged in, in sign in it is not required as the authentication would deal with it but in this case I wanted the signed up
@@ -45,6 +43,7 @@ var router = function(sideMenu) {
 
 	authRouter.route('/profile')
 	.get(function(req,res){
+		console.log("INSIDE PROFILE CREATION");
 		// req.user lets you know that this user is signed in and here is his infoemation
 		res.render('profile', {title: 'From Profile',
 			sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
@@ -52,6 +51,7 @@ var router = function(sideMenu) {
 		//res.json(req.user);
 	});
 }); 
+
 
  return authRouter;
 };

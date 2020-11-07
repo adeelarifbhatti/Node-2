@@ -1,12 +1,12 @@
 var express = require('express');
-var fourthRoute = express.Router();
+var signin = express.Router();
 
 var router = function(sideMenu){
 
- fourthRoute.route('/').get(function (req,res){
+ signin.route('/').get(function (req,res){
 	res.render('signin', {title: 'From Fourth', sideMenu: sideMenu});
  });
-return fourthRoute;
+return signin;
 
 };
 
