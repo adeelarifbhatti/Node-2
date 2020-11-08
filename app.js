@@ -16,17 +16,9 @@ var sideMenu = [
 										{Link: '/adminpage', Text: 'AdminPage'}
 																
 		    ];
-var UAsideMenu = [		
-
-										{Link: '/signup', Text: 'SignUp'}, 
-										{Link: '/signin', Text: 'SignIn'}, 
-										{Link: '/adminpage', Text: 'AdminPage'}
-																
-		    ];
-
 var countries = require('./src/routes/countries')(sideMenu);
 var capitals = require('./src/routes/capitals')(sideMenu);
-var signup = require('./src/routes/signup')(UAsideMenu);
+var signup = require('./src/routes/signup')(sideMenu);
 var signin = require('./src/routes/signin')(sideMenu);
 var adminpage = require('./src/routes/adminpage')(sideMenu);
 var fakeData = require('./src/routes/fakeData')(sideMenu);
@@ -57,7 +49,7 @@ app.use('/fakeData', fakeData);
 app.use('/auth', authRouter);
 
 app.get('/', function(req,res){
-	res.render('index', {title: 'FromMain', UAsideMenu: UAsideMenu});
+	res.render('index', {title: 'FromMain', sideMenu: sideMenu});
 	});
 app.listen(port, function(err) {
 	console.log("the server on port " + port);
