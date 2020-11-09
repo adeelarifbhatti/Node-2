@@ -17,8 +17,34 @@ var countryController = function (sideMenu){
   
 };
 }; 
+	var getById =function (req,res){
+	var id = new objectId(req.params.id);
+	var url = 'mongodb://my-mongo:27017/db-express';
+	mongodb.connect(url, function(err, db){
+
+		var collection = db.collection('data');
+		collection.findOne({_id :id}, function(err, results) { 
+										res.render('capitalview', {title: 'From First',
+										 sideMenu: sideMenu,
+										 fakeData: results});
+							 }
+				    		);
+		
+	});
+	
+
+  };
+  	var middleWare = function(req,res,next){
+		if(!req.user){
+			res.redirect('/signin');
+		}
+		next();
+	};
+
 	return {
-		getIndex: getIndex
+		getIndex: getIndex,
+		getById: getById,
+		middleWare: middleWare
 	};
 };
 module.exports = countryController;
