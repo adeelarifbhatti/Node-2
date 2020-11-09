@@ -33,6 +33,15 @@ var router = function(sideMenu) {
 			//sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
 			console.log(req.body);
 		});
+
+		authRouter.route('/signout')
+		.get(function(req,res){
+			req.session.destroy(function(err){
+				console.log("Signing Out");
+				res.redirect('/');
+			});
+		});
+		
 		
 
 		/* When passport does it's things i.e. passport.initialize and passport.session and middleware it would add  things to request for us to use, the following login function is one of them,
