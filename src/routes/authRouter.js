@@ -46,7 +46,7 @@ var router = function(sideMenu) {
 		.all(function(req,res,next){
 			if(!req.user){
 				//res.render('error',{title: 'error',sideMenu: sideMenu, result: 'User is not logged in, please login'});
-				res.redirect('/');
+				res.redirect('/signin');
 			}
 			next();
 		})

@@ -1,10 +1,10 @@
 var express = require('express');
 var signup = express.Router();
 
-var router = function(sideMenu) {
+var router = function(UAsideMenu) {
 
  signup.route('/').get(function(req,res){
-	res.render('signup', {title: 'From Third', sideMenu: sideMenu});
+	res.render('signup', {title: 'From Third', UAsideMenu: UAsideMenu});
 	
 
  });

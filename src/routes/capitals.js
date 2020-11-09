@@ -11,6 +11,7 @@ var router = function(sideMenu){
 		next();
 	});
  secondRoute.route('/').get(function (req,res){
+ 	if(req.user){
 	var url = 'mongodb://my-mongo:27017/db-express';
 	mongodb.connect(url, function(err,db){
 	var collection = db.collection('data')
@@ -21,6 +22,7 @@ var router = function(sideMenu){
 		}
 	);
  });
+}
 });
  secondRoute.route('/:id').get(function(req,res){
  	var id = new objectId(req.params.id);

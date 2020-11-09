@@ -982,10 +982,17 @@ var data = [
 ];
 
 var router = function (sideMenu) {
+    fakeData.use(function(req,res,next){
+      if(!req.user){
+          res.redirect('/');
+      }
+        next();
+    });
 	fakeData.route('/addData')
 		.get(function (req,res) {
-			var url = 'mongodb://my-mongo:27017/db-express';
-			mongodb.connect(url, function(err,db){
+            if(req.user){
+			 var url = 'mongodb://my-mongo:27017/db-express';
+			 mongodb.connect(url, function(err,db){
 				//var collection = db.collection('data');
 				// collection.insertMany(data,
 				// could be like above ....
@@ -998,7 +1005,8 @@ var router = function (sideMenu) {
 
 			});
 		
-		});
+		}
+    });
 
 return fakeData;
 }
