@@ -52,24 +52,25 @@ var router = function(sideMenu) {
 		
 
 	authRouter.route('/profile')
-		.all(function(req,res,next){
-			if(!req.user){
-				//res.render('error',{title: 'error',sideMenu: sideMenu, result: 'User is not logged in, please login'});
-				res.redirect('/signin');
-			}
-			next();
-		})
 		.get(function(req,res){
 			if(req.user){
-		console.log("INSIDE PROFILE CREATION");
+				//res.render('error',{title: 'error',sideMenu: sideMenu, result: 'User is not logged in, please login'});
+				res.render('profile', {title: 'From Profile',
+				sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
+		
+				
+			}
+		
+		
+			else{
+		res.redirect('/signin');
 		// req.user lets you know that this user is signed in and here is his infoemation
-		res.render('profile', {title: 'From Profile',
-			sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
 		}
+	});
 		//console.log(req.user.username);
 		//res.json(req.user);
-	});
+	
 	return authRouter;
-};
 
+}
 module.exports= router;
