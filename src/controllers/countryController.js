@@ -30,7 +30,7 @@ var countryController = function (countryService,sideMenu){
 											res.render('capitalview', {title: 'From First',
 										    sideMenu: sideMenu,
 										    fakeData: results});
-										    console.log(results);
+										    
 										});
 
 							 }

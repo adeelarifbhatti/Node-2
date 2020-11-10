@@ -1,6 +1,6 @@
 var countryService = function(){
 	var getCountryById = function(id,cb){
-		cb(null,"My Country From Json");
+		cb(null,{description: "My Country From Json"});
 	};
 	
 	return {
