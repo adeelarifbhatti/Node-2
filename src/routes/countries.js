@@ -6,7 +6,8 @@ var objectId = require('mongodb').ObjectID
 
 
 var router = function(sideMenu){
-	var countryController = require('../controllers/countryController')(sideMenu);
+	var countryService = require('../services/countryService')();
+	var countryController = require('../controllers/countryController')(countryService,sideMenu);
 	firstRoute.use(countryController.middleWare);
  firstRoute.route('/').get(countryController.getIndex);
 

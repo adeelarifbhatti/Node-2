@@ -1,7 +1,7 @@
 var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID
 
-var countryController = function (sideMenu){
+var countryController = function (countryService,sideMenu){
 	var getIndex = function(req, res){
  	if(req.user){
  	var url = 'mongodb://my-mongo:27017/db-express';
@@ -24,9 +24,15 @@ var countryController = function (sideMenu){
 
 		var collection = db.collection('data');
 		collection.findOne({_id :id}, function(err, results) { 
-										res.render('capitalview', {title: 'From First',
-										 sideMenu: sideMenu,
-										 fakeData: results});
+									countryService.getCountryById(results.countryId,
+										function(err, cb){
+											results.description = cb;
+											res.render('capitalview', {title: 'From First',
+										    sideMenu: sideMenu,
+										    fakeData: results});
+										    console.log(results);
+										});
+
 							 }
 				    		);
 		
