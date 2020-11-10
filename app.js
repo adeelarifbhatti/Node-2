@@ -11,7 +11,8 @@ var port = process.env.PORT || 8080;
 var sideMenu = [		
 										{Link: '/countries', Text: 'Countries'}, 
 										{Link: '/capitals', Text: 'Capitals'}, 
-										{Link: '/adminpage', Text: 'AdminPage'}
+										{Link: '/adminpage', Text: 'AdminPage'},
+										{Link: '/auth/signout', Text: 'SignOut'}
 																
 		    ];
 var UAsideMenu = [		
