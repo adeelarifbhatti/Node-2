@@ -8,9 +8,9 @@ var localStrategyAuth = function () {
 		passwordField: 'password'
 	},function(username, password, done){
 		var url = 'mongodb://my-mongo:27017/db-express';
-		mongodb.connect(url, function(err, db) {
-		var collection = db.collection('users');
-		collection.findOne({username: username}, 
+		mongodb.connect(url, function(err, client) {
+		var collection = client.db('db-express');
+		collection.collection('users').findOne({username: username}, 
 			function(err, results){
 				if (results===null) { return done(null, false, {message: 'bad user'})}
 				if (results.password === password){

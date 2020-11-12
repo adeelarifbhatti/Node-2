@@ -9,13 +9,13 @@ var router = function(sideMenu) {
 	.post(function(req,res) {
 		console.log(req.body);
 		var url = 'mongodb://my-mongo:27017/db-express';
-		mongodb.connect(url, function(err,db){
-			var collection = db.collection('users');
+		mongodb.connect(url, function(err,client){
+			var collection = client.db('db-express');
 			var user = {
 				username: req.body.username,
 				password: req.body.password
 			};
-			collection.insert(user, function(err, results){
+			collection.collection('users').insertOne(user, function(err, results){
 				req.login(results.ops[0], function(){
 					res.redirect('/auth/profile');
 				});

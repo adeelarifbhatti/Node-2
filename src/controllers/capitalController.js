@@ -8,9 +8,9 @@ var capitalController = function (sideMenu){
 	var getIndex = function (req,res){
  	if(req.user){
 	var url = 'mongodb://my-mongo:27017/db-express';
-	mongodb.connect(url, function(err,db){
-	var collection = db.collection('data')
-	collection.find({}).toArray(
+	mongodb.connect(url, function(err,client){
+	var collection = client.db('db-express')
+	collection.collection('data').find({}).toArray(
 		function(err,results){
 			res.render('capitals',{title: 'From Second', 
 			sideMenu: sideMenu,fakeData: results });
@@ -22,9 +22,9 @@ var capitalController = function (sideMenu){
 	var getById = function(req,res){
  	var id = new objectId(req.params.id);
  	var url = 'mongodb://my-mongo:27017/db-express';
- 		mongodb.connect(url, function(err, db){
- 		var collection =  db.collection('data');
- 		collection.findOne({_id :id},function(err,results){
+ 		mongodb.connect(url, function(err, client){
+ 		var collection =  client.db('db-express');
+ 		collection.collection('data').findOne({_id :id},function(err,results){
  		
  			res.render('countryview', {title: 'From Second',
 		 	sideMenu: sideMenu,

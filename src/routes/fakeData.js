@@ -992,14 +992,14 @@ var router = function (sideMenu) {
 		.get(function (req,res) {
             if(req.user){
 			 var url = 'mongodb://my-mongo:27017/db-express';
-			 mongodb.connect(url, function(err,db){
-				//var collection = db.collection('data');
+			 mongodb.connect(url, function(err,client){
+				var collection = client.db('db-express');
 				// collection.insertMany(data,
 				// could be like above ....
-				 db.collection('data').insertMany(data,
+				 collection.collection('data').insertMany(data,
 							 function (err,results){
 							 	res.send(results);
-							 	db.close();
+							 	client.close();
 								});
 
 
