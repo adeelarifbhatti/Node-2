@@ -8,18 +8,18 @@ services:
   volumes:
    - ./src:/usr/src/app/src
    - ./public/lib/bootstrap/dist/css/bootstrap.min.css:/usr/src/app/public/lib/bootstrap/dist/css/bootstrap.min.css
-   - ./app.js:/usr/src/app/app.js
+   - ./package.json:/usr/src/app/package.json
+   - ./gulpfile.js:/usr/src/app/gulpfile.js
   ports:
-   - "80:5000"
+   - "80:6000"
   links:
    - my-mongo
   depends_on:
-   - my-mongo
-   
+   - my-mongo 
 
 
  my-mongo:
   image: mongo
   ports:
-   - "27107:27107" 
+   - "27017:27017" 
 

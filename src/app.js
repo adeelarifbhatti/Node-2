@@ -3,10 +3,23 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookieParser =require('cookie-parser');
 var passport = require('passport');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+dotenv.config({ path: `${__dirname}/config.env` });
 
 
 
 var app = express();
+mongoose.connect( process.env.DATABASE_LOCAL, {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false
+
+}).then(dbconnection =>{
+//	console.log(dbconnection.connections);
+	console.log('Database is connected');
+});
+
 var port = process.env.PORT || 8080;
 var sideMenu = [		
 										{Link: '/countries', Text: 'Countries'}, 
@@ -20,20 +33,20 @@ var UAsideMenu = [
 										{Link: '/signin', Text: 'SignIn'}, 
 																
 		    ];
-var countries = require('./src/routes/countries')(sideMenu);
-var capitals = require('./src/routes/capitals')(sideMenu);
-var signup = require('./src/routes/signup')(UAsideMenu);
-var signin = require('./src/routes/signin')(UAsideMenu);
-var adminpage = require('./src/routes/adminpage')(sideMenu);
-var fakeData = require('./src/routes/fakeData')(sideMenu);
-var authRouter = require('./src/routes/authRouter')(sideMenu);
+var countries = require('./routes/countries')(sideMenu);
+var capitals = require('./routes/capitals')(sideMenu);
+var signup = require('./routes/signup')(UAsideMenu);
+var signin = require('./routes/signin')(UAsideMenu);
+var adminpage = require('./routes/adminpage')(sideMenu);
+var fakeData = require('./routes/fakeData')(sideMenu);
+var authRouter = require('./routes/authRouter')(sideMenu);
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({secret: 'learning'}));
-require('./src/config/passport')(app);
+require('./config/passport')(app);
 
 app.set('views','./src/view');
 app.set('view engine', 'ejs');

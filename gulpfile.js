@@ -35,10 +35,10 @@
 
  gulp.task('doneall', ['style','update'], function() {
  	var options = {
- 		script:'app.js',
+ 		script:'src/app.js',
  		delayTime:1,
  		env: {
- 			'PORT': 5000
+ 			'PORT': process.env.PORT
 	 	},
 	watch: checkJs
 	};

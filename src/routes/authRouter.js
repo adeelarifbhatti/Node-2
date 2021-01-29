@@ -1,28 +1,29 @@
 var express= require('express');
 var authRouter = express.Router();
+const mongoose = require('mongoose');
 var mongodb = require('mongodb').MongoClient;
+const User = require('../model/userModel');
 var passport = require('passport');
-
 
 var router = function(sideMenu) {
 	authRouter.route('/signup')
-	.post(function(req,res) {
+	.post(async function(req,res,next) {
+		try{ 
 		console.log(req.body);
-		var url = 'mongodb://my-mongo:27017/db-express';
-		mongodb.connect(url, function(err,client){
-			var collection = client.db('db-express');
-			var user = {
+			const user = await User.create({
 				username: req.body.username,
-				password: req.body.password
-			};
-			collection.collection('users').insertOne(user, function(err, results){
-				req.login(results.ops[0], function(){
-					res.redirect('/auth/profile');
-				});
-			});  
-		});
-		});
+				password: req.body.password,
+				confirmPassword: req.body.confirmPassword
+			});
+		}
+		catch(err){
+			console.log(err);
+		};
+		next();
+		
+	});
 
+		
 		authRouter.route('/signin')
 		.post(passport.authenticate('local', {
 			failureRedirect: '/' 
