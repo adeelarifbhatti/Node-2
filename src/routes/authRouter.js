@@ -1,7 +1,6 @@
 var express= require('express');
 var authRouter = express.Router();
 const mongoose = require('mongoose');
-var mongodb = require('mongodb').MongoClient;
 const User = require('../model/userModel');
 var passport = require('passport');
 
@@ -15,6 +14,7 @@ var router = function(sideMenu) {
 				password: req.body.password,
 				confirmPassword: req.body.confirmPassword
 			});
+			res.redirect('/auth/profile');
 		}
 		catch(err){
 			console.log(err);
@@ -26,7 +26,8 @@ var router = function(sideMenu) {
 		
 		authRouter.route('/signin')
 		.post(passport.authenticate('local', {
-			failureRedirect: '/' 
+			successRedirect: '/auth/profile',
+			failureRedirect: '/'
 		}), function(req,res) {
 			console.log("INSIDE SIGNIN");
 			res.redirect('/auth/profile');
@@ -58,12 +59,10 @@ var router = function(sideMenu) {
 				//res.render('error',{title: 'error',sideMenu: sideMenu, result: 'User is not logged in, please login'});
 				res.render('profile', {title: 'From Profile',
 				sideMenu: sideMenu,result: req.user.username, result2: req.user.password});
-		
 				
-			}
-		
-		
+			}		
 			else{
+				console.log("ADEEL",req.user);
 		res.redirect('/signin');
 		// req.user lets you know that this user is signed in and here is his infoemation
 		}
