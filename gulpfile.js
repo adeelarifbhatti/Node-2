@@ -33,7 +33,7 @@
 
  });
 
- gulp.task('doneall', ['style','update'], function() {
+ gulp.task('doneall', function() {
  	var options = {
  		script:'src/app.js',
  		delayTime:1,

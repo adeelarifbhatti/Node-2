@@ -11,9 +11,10 @@ dotenv.config({ path: `${__dirname}/config.env` });
 
 var app = express();
 mongoose.connect( process.env.DATABASE_LOCAL, {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useFindAndModify: false
+	useNewUrlParser: true
+	// Following are not suppored anymore in the newer versions
+	// useCreateIndex: true,
+	// useFindAndModify: false
 
 }).then(dbconnection =>{
 //	console.log(dbconnection.connections);
