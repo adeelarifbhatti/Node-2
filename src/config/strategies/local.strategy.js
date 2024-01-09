@@ -7,8 +7,7 @@ var localStrategyAuth = function () {
 		usernameField: 'username',
 		passwordField: 'password'
 	},function(username, password, done) {
-		User.findOne({ username: username }, function(err, user) {
-		  if (err) { return done(err); }
+		User.findOne({ username: username }).then(user => {
 		  if (!user) {
 			return done(null, false, { message: 'Incorrect username.' });
 		  }
