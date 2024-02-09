@@ -1,5 +1,6 @@
 var express = require('express');
 var fakeData = express.Router();
+const cc = require('../model/ccModel');
 var mongodb = require('mongodb').MongoClient;
 
 var data = [
@@ -991,19 +992,19 @@ var router = function (sideMenu) {
 	fakeData.route('/addData')
 		.get(function (req,res) {
             if(req.user){
-			 var url = 'mongodb://my-mongo:27017/db-express';
-			 mongodb.connect(url, function(err,client){
-				var collection = client.db('db-express');
-				// collection.insertMany(data,
-				// could be like above ....
-				 collection.collection('data').insertMany(data,
-							 function (err,results){
-							 	res.send(results);
-							 	client.close();
-								});
-
-
-			});
+                cc.insertMany(data).then((result) => {
+                    console.log(result);
+                });
+                // Old code, not working
+			//  var url = 'mongodb://my-mongo:27017/db-express';
+			//  mongodb.connect(url, function(err,client){
+			// 	var collection = client.db('db-express');
+			// 	 collection.collection('data').insertMany(data,
+			// 				 function (err,results){
+			// 				 	res.send(results);
+			// 				 	client.close();
+			// 					});
+			// });
 		
 		}
     });
