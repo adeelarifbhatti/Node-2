@@ -9,12 +9,19 @@ var localStrategyAuth = function () {
 	},async function(username, password, done) {
 		const user = await User.findOne({username}).select("+password");
 		if(!user){
-			return next(new ErrorHandler("Invalid Email or Password" ));
+			console.log("User not found")
+			// following is for API ? 
+			// return done(null, false, { message: 'Incorrect username.' });
 		}	
+		if(user){
 		const isPasswordMatched = await user.checkPassword(password, user.password);	
-		  if (!isPasswordMatched) {
-			return done(null, false, { message: 'Incorrect password.' });
+		  if(!isPasswordMatched) {
+			console.log("Password not found")
+			return done();
+			// following is for API ? 
+			// return done(null, false, { message: 'Incorrect password.' });
 		  }
+		}
 		return done(null, user);
 		// Old Code !!!
 		// User.findOne({ username: username }).then(user => {
